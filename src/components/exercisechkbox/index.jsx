@@ -6,8 +6,8 @@ const ExerciseCheckbox = (props) => {
     const [exercises, setExercises] = useState([]);
 
     const getExercise = async () => {
-        await exerciseService.get(props.exerciseID).then((res) => {
-            setExercises(res.data.name)
+        await exerciseService.getAll().then((res) => {
+            setExercises(res.data)
         })
     }
     useEffect(() => {
@@ -16,7 +16,21 @@ const ExerciseCheckbox = (props) => {
 
     return (
         <div>
-            <input type="checkbox" />
+            {
+                exercises.map(result => 
+                    {
+                        return (
+                            <div>
+                                <input type="checkbox" value={result.name} />{result.name},
+                                <label htmlFor="reps"> Number of reps:</label>
+                                <input type="number" name="reps"/>
+                            </div>
+                        )
+                    }
+                )
+            }
         </div>
     )
 }
+
+export default ExerciseCheckbox;
