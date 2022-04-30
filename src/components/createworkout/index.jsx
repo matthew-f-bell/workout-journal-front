@@ -1,18 +1,38 @@
-import React, { useState } from "react";
-import { WorkoutDataService } from "../../api/workout.service";
-
+import React, { useEffect, useState } from "react";
+import * as WorkoutDataService from "../../api/workout.service";
+import * as ExerciseService from "../../api/exercise.service";
+import ExerciseCheckbox from "../exercisechkbox";
 
 const CreateWorkout = () => {
-    const [name, setName] = useState("");
-    const [exercise, setExercise] = useState("");
-    const [sets, setSets] = useState("");
-    const [reps, setReps] = useState("");
+    let [name, setName] = useState("");
+    let [exercises, setExercises] = useState("");
+    let [sets, setSets] = useState("");
+    let [reps, setReps] = useState("");
+
+    const getExercises = async () => {
+        await ExerciseService.getAll().then((res) => {
+            setExercises(res.data)
+        })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await WorkoutDataService.create(name, exercises, sets).then(() => {
+            setName = "";
+            setExercises = "";
+            setSets = "";
+        });
+    };
+
+    useEffect(() => {
+        getExercises()
+    }, [])
 
     return (
         <>
             <h2>Create Workout</h2>
             <form action="post">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Name: </label>
                 <input
                         type="name"
                         name="name"
@@ -20,20 +40,11 @@ const CreateWorkout = () => {
                         value={name}
                         placeholder="name"
                 />
-
+                <br/><br/>
                 <label htmlFor="exercises">Exercises</label>
-                <input 
-                        type="name"
-                        name="name"
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        placeholder="name"
-                />
-
-                <label htmlFor="sets">Number of Sets</label>
-                <input type="text" name="sets"/>
-
-                <input type="submit" value="Create"/>
+                <ExerciseCheckbox />
+                <br/>
+                <input type="submit" value="Create" onClick={handleSubmit}/>
                 <button>Cancel</button>
             </form>
         </>

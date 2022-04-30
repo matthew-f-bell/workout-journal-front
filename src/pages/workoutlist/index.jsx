@@ -3,6 +3,7 @@ import Workout from "../../components/workout";
 
 import * as workoutService from "../../api/workout.service"
 import { useEffect, useState } from "react";
+import CreateWorkout from "../../components/createworkout";
 
 const WorkoutList = () => {
     const [workouts, setWorkouts] = useState([])
@@ -28,6 +29,7 @@ const WorkoutList = () => {
                     </>
                 )
             })}
+            <CreateWorkout />
         </>
     )
 }
