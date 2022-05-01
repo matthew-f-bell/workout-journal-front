@@ -8,6 +8,7 @@ const CreateWorkout = () => {
     let [exercises, setExercises] = useState("");
     let [sets, setSets] = useState("");
     let [reps, setReps] = useState("");
+    let [creator, setCreator] = useState("");
 
     const getExercises = async () => {
         await ExerciseService.getAll().then((res) => {
@@ -21,6 +22,8 @@ const CreateWorkout = () => {
             setName = "";
             setExercises = "";
             setSets = "";
+            setReps = "";
+            setCreator = "";
         });
     };
 
@@ -44,6 +47,8 @@ const CreateWorkout = () => {
                 <label htmlFor="exercises">Exercises</label>
                 <ExerciseCheckbox />
                 <br/>
+                <input type="text" name="creator" onChange={(e) => setCreator(e.target.value)} value={creator} />
+                <input type="hidden" name="sets" onChange={(e) => setSets(e.taget.value)} defaultValue="5" />
                 <input type="submit" value="Create" onClick={handleSubmit}/>
                 <button>Cancel</button>
             </form>

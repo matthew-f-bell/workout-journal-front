@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as exerciseService from "../../api/exercise.service"
 
-const ExerciseCheckbox = (props) => {
+const ExerciseCheckbox = () => {
 
     const [exercises, setExercises] = useState([]);
 
@@ -17,11 +17,11 @@ const ExerciseCheckbox = (props) => {
     return (
         <div>
             {
-                exercises.map(result => 
+                exercises.map(exercise => 
                     {
                         return (
                             <div>
-                                <input type="checkbox" value={result.name} />{result.name},
+                                <input type="checkbox" value={exercise.name} />{exercise.name},
                                 <label htmlFor="reps"> Number of reps:</label>
                                 <input type="number" name="reps"/>
                             </div>
