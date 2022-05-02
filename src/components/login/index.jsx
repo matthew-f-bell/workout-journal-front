@@ -16,7 +16,7 @@ const Login = () => {
         <>
             <h2>Login</h2>
             <form action="post">
-                <label for="email">E-mail</label>
+                <label htmlFor="email">E-mail</label>
                 <input
                     type="text"
                     name="email"
@@ -25,7 +25,7 @@ const Login = () => {
                     placeholder="email"
                 />
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                     type="password"
                     name="password"
