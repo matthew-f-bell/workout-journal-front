@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 import * as WorkoutDataService from "../../api/workout.service";
 import * as ExerciseService from "../../api/exercise.service";
 import ExerciseCheckbox from "../exercisechkbox";
+import { currentUser } from "../../api/auth.service";
 
 const CreateWorkout = () => {
     let [name, setName] = useState("");
     let [exercises, setExercises] = useState("");
     let [sets, setSets] = useState("");
-    let [reps, setReps] = useState("");
     let [creator, setCreator] = useState("");
 
     const getExercises = async () => {
         await ExerciseService.getAll().then((res) => {
+            console.log(res.data)
             setExercises(res.data)
         })
     }
+
+    const user = currentUser();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +25,6 @@ const CreateWorkout = () => {
             setName = "";
             setExercises = "";
             setSets = "";
-            setReps = "";
             setCreator = "";
         });
     };
@@ -47,7 +49,7 @@ const CreateWorkout = () => {
                 <label htmlFor="exercises">Exercises</label>
                 <ExerciseCheckbox />
                 <br/>
-                <input type="text" name="creator" onChange={(e) => setCreator(e.target.value)} value={creator} />
+                <input type="hidden" name="creator" onChange={(e) => setCreator(e.target.value)} value={user} />
                 <input type="hidden" name="sets" onChange={(e) => setSets(e.taget.value)} defaultValue="5" />
                 <input type="submit" value="Create" onClick={handleSubmit}/>
                 <button>Cancel</button>

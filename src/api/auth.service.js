@@ -1,7 +1,9 @@
 import tellWorkoutTo from "./axios.config";
+import { useNavigate } from "react-router-dom";
 
 const auth = "/auth";
 const users = "/users";
+
 
 const register = (email, password) => {
     return tellWorkoutTo
@@ -17,8 +19,10 @@ const login = (email, password) => {
             .post(`${auth}/login/`, {email, password})
             .then((res) => {
                 console.log(res)
+                localStorage.setItem("user", JSON.stringify(res.data.user))
                 if(res.data.token) {
-                    localStorage.setItem("user", JSON.stringify(res.data.token))
+                    localStorage.setItem("userToken", JSON.stringify(res.data.token))
+                    useNavigate("/workouts")
                 }
                 return res.data.token
             })
@@ -29,6 +33,7 @@ const login = (email, password) => {
 
 const currentUser = () => {
     let user = localStorage.getItem("user")
+    console.log(user)
     return JSON.parse(user)
 }
 
