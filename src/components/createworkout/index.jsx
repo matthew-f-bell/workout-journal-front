@@ -21,7 +21,8 @@ const CreateWorkout = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await WorkoutDataService.create(name, exercises, sets).then(() => {
+        console.log(creator);
+        await WorkoutDataService.create(name, exercises, sets, creator).then(() => {
             setName = "";
             setExercises = "";
             setSets = "";
@@ -49,7 +50,7 @@ const CreateWorkout = () => {
                 <label htmlFor="exercises">Exercises</label>
                 <ExerciseCheckbox />
                 <br/>
-                <input type="hidden" name="creator" onChange={(e) => setCreator(e.target.value)} value={user} />
+                <input type="hidden" name="creator" onChange={(e) => setCreator(e.target.value)} value={user.first_name} />
                 <input type="hidden" name="sets" onChange={(e) => setSets(e.taget.value)} defaultValue="5" />
                 <input type="submit" value="Create" onClick={handleSubmit}/>
                 <button>Cancel</button>
