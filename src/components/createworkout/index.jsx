@@ -8,7 +8,7 @@ const CreateWorkout = () => {
     let [name, setName] = useState("");
     let [exercises, setExercises] = useState("");
     let [sets, setSets] = useState("");
-    let [creator, setCreator] = useState("");
+    let [creator, setCreator] = useState();
 
     const getExercises = async () => {
         await ExerciseService.getAll().then((res) => {
@@ -21,8 +21,12 @@ const CreateWorkout = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(creator);
-        await WorkoutDataService.create(name, exercises, sets, creator).then(() => {
+
+        const data = new FormData();
+        data.append("creator", creator)
+        data.append("name", name)
+
+        await WorkoutDataService.create(data).then(() => {
             setName = "";
             setExercises = "";
             setSets = "";
@@ -32,6 +36,7 @@ const CreateWorkout = () => {
 
     useEffect(() => {
         getExercises()
+        setCreator(JSON.parse(localStorage.getItem("user")).id)
     }, [])
 
     return (
