@@ -8,8 +8,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await AuthService.login(email, password).then(() => {
-            setEmail("");
-            setPassword("");
+            setEmail = "";
+            setPassword = "";
         });
     };
     return (
