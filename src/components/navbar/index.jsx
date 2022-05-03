@@ -1,9 +1,34 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import SearchBar from "../searchbar";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import * as authService from "../../api/auth.service"
 
 
 const NavBar = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState()
+    const navigate = useNavigate();
+
+    const logout = async () => {
+        await authService.logout().then(() => {
+            navigate("/");
+        });
+    };
+
+    const userActive = async () => {
+        if(authService.currentUser()) {
+        setIsLoggedIn(true)
+        } else {
+        setIsLoggedIn(false)
+        }
+    }
+
+    useEffect(() => {
+        userActive();
+    }, [])
+
+    const logoutLink = () => {
+        if(isLoggedIn) { return (<Link to="/" onClick={logout}>Logout</Link>) }
+    }
 
     return (
         <>
@@ -16,7 +41,7 @@ const NavBar = () => {
                     Workouts
                 </Link>
                 <a href="">Groups</a>
-                <a href="">Logout</a>
+                {logoutLink()}
             </nav>
 
         </>
