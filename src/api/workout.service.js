@@ -24,6 +24,8 @@ const destroy = (id) => {
     return tellWorkoutTo.delete(`${workouts}/${id}/`);
 };
 
+const getUserWorkouts = (userID) => {
+    return tellWorkoutTo.get(`${workouts}/profile/${userID}/`)
+}
 
-
-export { getAll, get, create, update, destroy };
+export { getAll, get, create, update, destroy, getUserWorkouts };

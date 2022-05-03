@@ -24,6 +24,7 @@ const login = (email, password) => {
                     localStorage.setItem("userToken", JSON.stringify(res.data.token))
                     useNavigate("/workouts")
                 }
+                useNavigate("/workouts")
                 return res.data.token
             })
     } catch (err) {
@@ -38,15 +39,18 @@ const currentUser = () => {
 }
 
 const getProfile = () => {
-    return tellWorkoutTo.get(`${users}/profile`)
+    let user = localStorage.getItem("user")
+    return tellWorkoutTo.get(`${users}/${user.id}`)
 }
 
-const getUserWorkouts = () => {
-    return tellWorkoutTo.get(`${users}/workouts`)
+const updateProfile = () => {
+    let user = JSON.parse(localStorage.getItem("user"))
+    console.log(user.pk)
+    return tellWorkoutTo.post(`${users}/update/${user.pk}`)
 }
 
 const logout = () => {
     localStorage.removeItem("user")
 }
 
-export {register,login, currentUser, getProfile, getUserWorkouts, logout}
+export {register,login, currentUser, getProfile, updateProfile, logout}
