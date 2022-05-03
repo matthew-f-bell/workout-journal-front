@@ -1,4 +1,4 @@
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchbar";
 import { useState, useEffect } from "react";
 import * as authService from "../../api/auth.service"
@@ -40,7 +40,6 @@ const NavBar = () => {
                 <Link to="/workouts">
                     Workouts
                 </Link>
-                <a href="">Groups</a>
                 {logoutLink()}
             </nav>
 

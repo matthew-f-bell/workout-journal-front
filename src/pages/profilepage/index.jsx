@@ -4,6 +4,7 @@ import Workout from "../../components/workout"
 import { useState, useEffect} from 'react'
 import * as authService from "../../api/auth.service"
 import * as workoutService from "../../api/workout.service"
+import { NavLink } from "react-router-dom";
 
 const ProfilePage = () => {
     const user = authService.currentUser()
@@ -36,6 +37,9 @@ const ProfilePage = () => {
                     return
                 }
             })}
+            <span>
+                <NavLink to="/profile/update">Update Profile</NavLink>
+            </span>
         </>
     )
 }
