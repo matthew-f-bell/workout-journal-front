@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as AuthService from "../../api/auth.service"
 
-const CreateProfile = () => {
+const CreateProfile = (props) => {
     const [first_name, setFirstName] = useState("");
     const [last_name, setLastName] = useState("");
     const [userHeight, setUserHeight] = useState("");
@@ -32,7 +32,7 @@ const CreateProfile = () => {
                         type="text"
                         name="first-name"
                         onChange={(e) => setFirstName(e.target.value)}
-                        value={first_name}
+                        value={props.first_name}
                         required 
                     />
                     <label htmlFor="last-name">
@@ -42,7 +42,7 @@ const CreateProfile = () => {
                         type="text"
                         name="first-name" 
                         onChange={(e) => setLastName(e.target.value)}
-                        value={last_name}
+                        value={props.last_name}
                         required 
                     />
                     <label htmlFor="user-height">
@@ -52,7 +52,7 @@ const CreateProfile = () => {
                         type="number" 
                         name="user-height" 
                         onChange={(e) => setUserHeight(e.target.value)}
-                        value={userHeight}
+                        value={props.userHeight}
                         required 
                     />
                     <label htmlFor="user-weight">
@@ -62,7 +62,7 @@ const CreateProfile = () => {
                         type="number" 
                         name="user-weight" 
                         onChange={(e) => setUserWeight(e.target.value)}
-                        value={userWeight}
+                        value={props.userWeight}
                         required 
                     />
                     <label htmlFor="profile-pic">
@@ -73,7 +73,7 @@ const CreateProfile = () => {
                         name="profile-pic" 
                         accept="image/" 
                         onChange={(e) => setImage(e.target.value)}
-                        value={image}
+                        value={props.image}
                     />
                     <input type="submit" value="Save" onClick={handleSubmit} />
                 </form>

@@ -34,7 +34,6 @@ const login = (email, password) => {
 
 const currentUser = () => {
     let user = localStorage.getItem("user")
-    console.log(user)
     return JSON.parse(user)
 }
 
