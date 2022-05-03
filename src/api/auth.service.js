@@ -42,10 +42,10 @@ const getProfile = () => {
     return tellWorkoutTo.get(`${users}/${user.id}`)
 }
 
-const updateProfile = () => {
+const updateProfile = (first_name, last_name, userHeight, userWeight, image) => {
     let user = JSON.parse(localStorage.getItem("user"))
     console.log(user.pk)
-    return tellWorkoutTo.post(`${users}/update/${user.pk}`)
+    return tellWorkoutTo.put(`${users}/update/${user.pk}`, {first_name, last_name, userHeight, userWeight, image})
 }
 
 const logout = () => {

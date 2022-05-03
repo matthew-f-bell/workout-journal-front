@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import * as AuthService from "../../api/auth.service"
 
 const CreateProfile = (props) => {
-    const [first_name, setFirstName] = useState("");
-    const [last_name, setLastName] = useState("");
-    const [userHeight, setUserHeight] = useState("");
-    const [userWeight, setUserWeight] = useState("");
-    const [image, setImage] = useState("");
+    let [first_name, setFirstName] = useState("");
+    let [last_name, setLastName] = useState("");
+    let [userHeight, setUserHeight] = useState("");
+    let [userWeight, setUserWeight] = useState("");
+    let [image, setImage] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ const CreateProfile = (props) => {
         <div>
             <div>
                 <h2>Create Your Profile</h2>
-                <form method="post">
+                <form method="put">
                     <label htmlFor="first-name">
                         First Name:
                     </label>
@@ -76,6 +77,7 @@ const CreateProfile = (props) => {
                         value={props.image}
                     />
                     <input type="submit" value="Save" onClick={handleSubmit} />
+                    <button><NavLink to="/profile">Cancel</NavLink></button>
                 </form>
             </div>
         </div>
