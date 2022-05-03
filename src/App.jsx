@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
+          <Route path="/" element={<HomePage loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} />}/>
           <Route path="/workouts" element={isLoggedIn ? <WorkoutList/> : <HomePage/>}/>
           <Route path="/profile" element={isLoggedIn ? <ProfilePage/> : <HomePage/>}/>
           <Route path="/register" element={<SignupPage/>}/>
