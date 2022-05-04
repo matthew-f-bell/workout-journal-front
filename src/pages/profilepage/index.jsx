@@ -34,7 +34,9 @@ const ProfilePage = () => {
                         </>
                     )
                 } else {
-                    return
+                    return (
+                        <div>User has not created any workouts!</div>
+                    )
                 }
             })}
             <span>
