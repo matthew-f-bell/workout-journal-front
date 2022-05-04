@@ -1,0 +1,19 @@
+.nav-container {
+    display: flex;
+    border-bottom: 1px solid black; 
+    justify-content: space-evenly;
+    height: 4rem;
+    background: #1B41A2;
+    font-size: 2rem;
+    position: sticky;
+    z-index: 999;
+}
+
+.nav-link {
+    margin: 0 3rem;
+    color: white;
+    position: relative;
+    bottom: -20px; 
+    font-size: 28px;
+    text-decoration: none;
+}
