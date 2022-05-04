@@ -8,10 +8,10 @@ const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState()
     const navigate = useNavigate();
 
-    const logout = async (e) => {
-        await authService.logout().then(() => {
-            navigate("/");
-        });
+    const logout = async () => {
+        authService.logout()
+        window.location.reload(false);
+        
     };
 
     const userActive = async () => {

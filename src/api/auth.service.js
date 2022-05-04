@@ -1,5 +1,4 @@
 import tellWorkoutTo from "./axios.config";
-import { useNavigate } from "react-router-dom";
 
 const auth = "/auth";
 const users = "/users";
@@ -22,9 +21,7 @@ const login = (email, password) => {
                 localStorage.setItem("user", JSON.stringify(res.data.user))
                 if(res.data.token) {
                     localStorage.setItem("userToken", JSON.stringify(res.data.token))
-                    useNavigate("/workouts")
                 }
-                useNavigate("/workouts")
                 return res.data.token
             })
     } catch (err) {
