@@ -55,7 +55,7 @@ const CreateWorkout = () => {
     }, [])
 
     return (
-        <>
+        <div className="login">
             <h2>Create Workout</h2>
             <form action="post">
                 <label htmlFor="name">Name: </label>
@@ -67,10 +67,10 @@ const CreateWorkout = () => {
                         placeholder="name"
                 />
                 <br/><br/>
+
                 <p>Added Exercises:</p>
                 <ExerciseList exerciseList={exerciseList}/>
                 <label htmlFor="exercises">Add Exercises</label>
-                {/* <ExerciseCheckbox /> */}
                 <br />
                 <select id="exerciseSelect" name="Exercise">
                     {
@@ -90,10 +90,12 @@ const CreateWorkout = () => {
                 <br />
                 <button type="button" onClick={addExercise}>Add Exercise</button>
                 <br/><br /><br />
-                <input type="submit" value="Create" onClick={handleSubmit}/>
+                <input className="login-btn" type="submit" value="Create" onClick={handleSubmit}/>
+
             </form>
-            <button><NavLink to="/workouts">Cancel</NavLink></button>
-        </>
+            <br/>
+            <button className="signup-btn" ><NavLink to="/workouts"><div className="signup">Cancel</div></NavLink></button>
+        </div>
     )
 }
 

@@ -1,5 +1,8 @@
 import { currentUser } from "../../api/auth.service"
 import CreateProfile from "../../components/createprofile"
+import NavBar from "../../components/navbar"
+
+import "../../stylesheets/login.css"
 
 
 
@@ -9,7 +12,12 @@ const UpdateProfile = () => {
 
 
     return (
-        <CreateProfile user={user}/>
+        <div>
+            <NavBar/>
+            <div className="login-container">
+                <CreateProfile user={user}/>
+            </div>
+        </div>
     )
 }
 

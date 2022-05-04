@@ -6,6 +6,8 @@ import * as authService from "../../api/auth.service"
 import * as workoutService from "../../api/workout.service"
 import { NavLink } from "react-router-dom";
 
+import "../../stylesheets/login.css"
+
 const ProfilePage = () => {
     const user = authService.currentUser()
     const [workouts, setWorkouts] = useState([])
@@ -24,6 +26,7 @@ const ProfilePage = () => {
         <>
             <NavBar/>
             <h1>Profile</h1>
+            <button className="btn" ><NavLink to="/profile/update"><div className="btn-txt">Update Profile</div></NavLink></button>
             <Profile user={user} />
             <h2>Workouts Created:</h2>
             {workouts.map((workout) => {
