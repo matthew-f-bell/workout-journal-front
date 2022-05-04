@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchbar";
 import { useState, useEffect } from "react";
-import * as authService from "../../api/auth.service"
+import * as authService from "../../api/auth.service";
+import "./index.css"
 
 
 const NavBar = () => {
@@ -27,23 +28,20 @@ const NavBar = () => {
     }, [])
 
     const logoutLink = () => {
-        if(isLoggedIn) { return (<Link to="/" onClick={logout}>Logout</Link>) }
+        if(isLoggedIn) { return (<Link to="/" onClick={logout} className="nav-link">Logout</Link>) }
     }
 
     return (
-        <>
-            <nav>
+            <nav className="nav-container">
                 {/* Logo for home page? */}
-                <a href="/">Home</a>
+                <a href="/" className="nav-link">Home</a>
                 <SearchBar/>
-                <a href="/profile">Profile</a>
-                <Link to="/workouts">
+                <a href="/profile" className="nav-link">Profile</a>
+                <Link to="/workouts" className="nav-link">
                     Workouts
                 </Link>
                 {logoutLink()}
             </nav>
-
-        </>
     );
 };
 
