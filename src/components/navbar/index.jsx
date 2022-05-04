@@ -10,9 +10,9 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const logout = async () => {
-        await authService.logout().then(() => {
-            navigate("/");
-        });
+        authService.logout()
+        window.location.reload(false);
+        
     };
 
     const userActive = async () => {

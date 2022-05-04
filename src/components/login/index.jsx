@@ -11,6 +11,9 @@ const Login = () => {
             setEmail("");
             setPassword("");
             window.location.reload(false);
+        })
+        .catch(() => {
+            alert("Username or Password Incorrect");
         });
     };
 
