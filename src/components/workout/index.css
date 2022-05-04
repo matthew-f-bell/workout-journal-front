@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+.workout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background: rgba(211,211,211,0.5);
+    min-width: 300px;
+    margin: 10px 10px;
+    border-radius: 25px;
+}
+
+.card-details {
+    margin: 1px auto;
+}

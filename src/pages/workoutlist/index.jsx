@@ -4,6 +4,9 @@ import Workout from "../../components/workout";
 import * as workoutService from "../../api/workout.service"
 import { useEffect, useState } from "react";
 import CreateWorkout from "../../components/createworkout";
+import { NavLink } from "react-router-dom";
+
+import "./index.css"
 
 const WorkoutList = () => {
     const [workouts, setWorkouts] = useState([])
@@ -21,15 +24,17 @@ const WorkoutList = () => {
     return(
         <>
             <NavBar/>
-            <h1>Workout List</h1>
-            {workouts.map((workout) => {
-                return (
-                    <>
-                        <Workout name={workout.name} creator={workout.Creator} exercises={workout.Exercises}/>
-                    </>
-                )
-            })}
-            <CreateWorkout />
+            <div className="workout-page">
+                <button><NavLink to="/workouts/create">Create A Workout</NavLink></button>
+                <h1 className="workout-title">Workouts</h1>
+                {workouts.map((workout) => {
+                    return (
+                        <>
+                            <Workout name={workout.name} creator={workout.Creator} exercises={workout.Exercises}/>
+                        </>
+                    )
+                })}
+            </div>
         </>
     )
 }
