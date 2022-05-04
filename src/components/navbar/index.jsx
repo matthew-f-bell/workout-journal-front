@@ -8,7 +8,7 @@ const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState()
     const navigate = useNavigate();
 
-    const logout = async () => {
+    const logout = async (e) => {
         await authService.logout().then(() => {
             navigate("/");
         });
