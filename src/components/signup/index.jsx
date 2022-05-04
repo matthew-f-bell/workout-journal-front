@@ -16,12 +16,14 @@ const SignUp = () => {
 
     return (
         <div>
-            <div>
-                <h2>Sign-Up Page</h2>
+            <div className='login'>
+                <h1>Sign-Up Page</h1>
                 <form method="post">
                     <label htmlFor="email">
-                        email
+                        Email:
                     </label>
+                    <br/>
+                    <br/>
                     <input
                         type="email"
                         name="email"
@@ -29,9 +31,13 @@ const SignUp = () => {
                         value={email}
                         placeholder="email"
                     />
+                    <br/>
+                    <br/>
                     <label htmlFor="password1">
-                        password
+                        Password:
                     </label>
+                    <br/>
+                    <br/>
                     <input
                         type="password"
                         name="password1"
@@ -39,7 +45,9 @@ const SignUp = () => {
                         value={password}
                         placeholder="password"
                     />
-                    <input type="submit" value="Sign-Up" onClick={handleSubmit} />
+                    <br/>
+                    <br/>
+                    <input className='login-btn' type="submit" value="Sign-Up" onClick={handleSubmit} />
                 </form>
             </div>
         </div>

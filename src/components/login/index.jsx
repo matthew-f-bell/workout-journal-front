@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import * as AuthService from "../../api/auth.service"
 
+import "../../stylesheets/login.css"
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,10 +20,12 @@ const Login = () => {
     };
 
     return (
-        <>
-            <h2>Login</h2>
+        <div className='login'>
+            <h1>Login</h1>
             <form action="post">
-                <label htmlFor="email">E-mail</label>
+                <label htmlFor="email">E-mail:</label>
+                <br/>
+                <br/>
                 <input
                     type="text"
                     name="email"
@@ -29,8 +33,11 @@ const Login = () => {
                     value={email}
                     placeholder="email"
                 />
-
-                <label htmlFor="password">Password</label>
+                <br/>
+                <br/>
+                <label htmlFor="password">Password:</label>
+                <br/>
+                <br/>
                 <input
                     type="password"
                     name="password"
@@ -38,10 +45,11 @@ const Login = () => {
                     value={password}
                     placeholder="password"
                 />
-
-                <input type="submit" value="Login" onClick={handleSubmit}/>
+                <br/>
+                <br/>
+                <input className='login-btn' type="submit" value="Login" onClick={handleSubmit}/>
             </form>
-        </>
+        </div>
     )
 }
 

@@ -4,6 +4,8 @@ import Login from "../../components/login";
 import SignUp from "../../components/signup";
 import { NavLink } from "react-router-dom";
 
+import "../../stylesheets/login.css"
+
 const HomePage = (props) => {
 
     const homeContent = () => {
@@ -15,10 +17,11 @@ const HomePage = (props) => {
             )
         } else {
             return (
-                <>
+                <div className="login-container">
                     <Login/>
-                    <NavLink to="/register">Sign-Up</NavLink>
-                </>
+                    <br/>
+                    <button className="signup-btn"><NavLink to="/register"><div className="signup">Sign-Up</div></NavLink></button>
+                </div>
             )
         }
     }
@@ -26,7 +29,6 @@ const HomePage = (props) => {
     return (
         <>
             <NavBar />
-            <h1>Home Page</h1>
             {homeContent()}
         </>
     )
