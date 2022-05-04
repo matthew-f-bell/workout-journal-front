@@ -2,3 +2,14 @@
     display: flex;
     justify-content: center;
 }
+
+.btn {
+    background-color: #1B41A2;
+    color: #FFFFFF;     
+}
+
+.btn-txt {
+    color: white;
+    max-width: 300px;
+    margin: 0 15px;
+}

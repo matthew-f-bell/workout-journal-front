@@ -24,8 +24,9 @@ const WorkoutList = () => {
     return(
         <>
             <NavBar/>
+            <br/>
             <div className="workout-page">
-                <button><NavLink to="/workouts/create">Create A Workout</NavLink></button>
+                <button className="btn" ><NavLink to="/workouts/create"><div className="btn-txt">Create A Workout</div></NavLink></button>
                 <h1 className="workout-title">Workouts</h1>
                 {workouts.map((workout) => {
                     return (

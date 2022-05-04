@@ -41,7 +41,7 @@ const CreateWorkout = () => {
     }, [])
 
     return (
-        <>
+        <div className="login">
             <h2>Create Workout</h2>
             <form action="post">
                 <label htmlFor="name">Name: </label>
@@ -58,10 +58,11 @@ const CreateWorkout = () => {
                 <br/>
                 <input type="hidden" name="creator" onChange={(e) => setCreator(e.target.value)} value={user.first_name} />
                 <input type="hidden" name="sets" onChange={(e) => setSets(e.taget.value)} defaultValue="5" />
-                <input type="submit" value="Create" onClick={handleSubmit}/>
+                <input className="login-btn" type="submit" value="Create" onClick={handleSubmit}/>
             </form>
-            <button><NavLink to="/workouts">Cancel</NavLink></button>
-        </>
+            <br/>
+            <button className="signup-btn" ><NavLink to="/workouts"><div className="signup">Cancel</div></NavLink></button>
+        </div>
     )
 }
 
