@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import * as AuthService from "../../api/auth.service"
 
+import "../../stylesheets/login.css"
+
+
 const CreateProfile = (props) => {
     let [first_name, setFirstName] = useState("");
     let [last_name, setLastName] = useState("");
@@ -23,12 +26,14 @@ const CreateProfile = (props) => {
 
     return (
         <div>
-            <div>
+            <div className="login">
                 <h2>Create Your Profile</h2>
                 <form method="put">
                     <label htmlFor="first-name">
                         First Name:
                     </label>
+                    <br/>
+                    <br/>
                     <input 
                         type="text"
                         name="first-name"
@@ -36,9 +41,13 @@ const CreateProfile = (props) => {
                         value={props.first_name}
                         required 
                     />
+                    <br/>
+                    <br/>
                     <label htmlFor="last-name">
                         Last Name:
                     </label>
+                    <br/>
+                    <br/>
                     <input 
                         type="text"
                         name="first-name" 
@@ -46,9 +55,13 @@ const CreateProfile = (props) => {
                         value={props.last_name}
                         required 
                     />
+                    <br/>
+                    <br/>
                     <label htmlFor="user-height">
                         Height:
                     </label>
+                    <br/>
+                    <br/>
                     <input 
                         type="number" 
                         name="user-height" 
@@ -56,9 +69,13 @@ const CreateProfile = (props) => {
                         value={props.userHeight}
                         required 
                     />
+                    <br/>
+                    <br/>
                     <label htmlFor="user-weight">
                         Weight: 
                     </label>
+                    <br/>
+                    <br/>
                     <input 
                         type="number" 
                         name="user-weight" 
@@ -66,9 +83,13 @@ const CreateProfile = (props) => {
                         value={props.userWeight}
                         required 
                     />
+                    <br/>
+                    <br/>
                     <label htmlFor="profile-pic">
                         Profile Picture:
                     </label>
+                    <br/>
+                    <br/>
                     <input 
                         type="file" 
                         name="profile-pic" 
@@ -76,8 +97,12 @@ const CreateProfile = (props) => {
                         onChange={(e) => setImage(e.target.value)}
                         value={props.image}
                     />
-                    <input type="submit" value="Save" onClick={handleSubmit} />
-                    <button><NavLink to="/profile">Cancel</NavLink></button>
+                    <br/>
+                    <br/>
+                    <input className="login-btn" type="submit" value="Save" onClick={handleSubmit} />
+                    <br/>
+                    <br/>
+                    <button className="signup-btn"><NavLink to="/profile"> <div className="signup">Cancel</div></NavLink></button>
                 </form>
             </div>
         </div>
