@@ -3,6 +3,7 @@ import * as WorkoutDataService from "../../api/workout.service";
 import * as ExerciseService from "../../api/exercise.service";
 import ExerciseCheckbox from "../exercisechkbox";
 import { currentUser } from "../../api/auth.service";
+import { NavLink } from "react-router-dom";
 
 const CreateWorkout = () => {
     let [name, setName] = useState("");
@@ -58,8 +59,8 @@ const CreateWorkout = () => {
                 <input type="hidden" name="creator" onChange={(e) => setCreator(e.target.value)} value={user.first_name} />
                 <input type="hidden" name="sets" onChange={(e) => setSets(e.taget.value)} defaultValue="5" />
                 <input type="submit" value="Create" onClick={handleSubmit}/>
-                <button>Cancel</button>
             </form>
+            <button><NavLink to="/workouts">Cancel</NavLink></button>
         </>
     )
 }

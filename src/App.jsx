@@ -6,6 +6,7 @@ import SignupPage from './pages/signuppage';
 import WorkoutList from './pages/workoutlist';
 import * as authService from "./api/auth.service"
 import UpdateProfile from './pages/updateprofilepage';
+import CreateWorkoutPage from './pages/createworkoutpage';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/profile" element={isLoggedIn ? <ProfilePage/> : <HomePage/>}/>
           <Route path="/register" element={<SignupPage/>}/>
           <Route path="/profile/update" element={<UpdateProfile />} />
+          <Route path="/workouts/create" element={<CreateWorkoutPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

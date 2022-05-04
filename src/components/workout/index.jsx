@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Exercise from "../exercise"
+import "./index.css"
 
 const Workout = (props) => {
     return (
